@@ -118,6 +118,7 @@ Add Packages -> Configure Sources -> Add，定位到.nupkg文件所在的目录�
 * 测试和持续集成
 
 ## 参考
+* [项目地址 - GitHub](https://github.com/rabbitom/XamarinAppVersionPlugin)
 * [Creating New Platform-Specific Library Projects for NuGet](https://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget-multiplatform-libraries/platform-specific/) - 即本文创建NuGet包所使用的方式
 * [Creating Reusable Plugins for Xamarin and Xamarin.Forms](https://blog.xamarin.com/creating-reusable-plugins-for-xamarin-forms/) - 2014年的文章，当时步骤还比较繁琐
 * [Plugins - Easily add native functionality to Xamarin.Forms apps](https://developer.xamarin.com/guides/xamarin-forms/platform-features/plugins/) - Xamarin.Forms官方文档中对使用和创建插件的介绍
