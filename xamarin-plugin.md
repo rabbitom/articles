@@ -82,19 +82,19 @@ Xamarin.Forms是一套跨平台移动开发框架，使用C#作为开发语言�
         }
     }
     ```
-    需要注意的是：如果是在Xamarin.Forms工程中，可以直接使用Forms.Context获取当前项目的Context，但设计插件时应当避免依赖Xamarin.Forms，确保其在非Forms工程中也能使用。因此这里添加了一个Init方法，用来在运行时由调用方传递Context。
-1. 在NuGet工程中无需添加任何代码，只需完善一下元数据：![NuGet MetaData](images/nuget-metadata.jpg)
+    需要注意的是：如果是在Xamarin.Forms工程中，可以直接使用Forms.Context获取当前项目的Context，但设计插件时应当避免依赖Xamarin.Forms，确保其在非Forms工程中也能使用。因此这里添加了一个Init方法，用来在运行时由调用方传递Context。
+1. 在NuGet工程中无需添加任何代码，只需完善一下元数据：![NuGet MetaData](images/nuget-metadata.jpg)
     然后在NuGet项目上点击右键，选择“Create NuGet Package”即可编译：![Create Nuget Package](images/create_nuget_package.jpg)
-    生成的NuGet包在AppVersionPlugin.NuGet/bin/Debug或AppVersionPlugin.NuGet/bin/Release下，扩展名为.nupkg。
+    生成的NuGet包在AppVersionPlugin.NuGet/bin/Debug或AppVersionPlugin.NuGet/bin/Release下，扩展名为.nupkg。
 
 ## 引用插件
 
 1. 插件可以发布到NuGet的官方仓库，也可以自己托管在云存储上，但不是必需的，可以直接在本地引用：新建Xamarin.Forms项目，在Xamarin.iOS、Xamarin.Android和跨平台的PCL工程中，选择
-Add Packages -> Configure Sources -> Add，定位到.nupkg文件所在的目录即可添加：
+Add Packages -> Configure Sources -> Add，定位到.nupkg文件所在的目录即可添加：
     ![Add Packages](images/add_packages.jpg)
     ![Configure Sources](images/configure_sources.png)
     ![Add Source](images/add_source.jpg)
-1. 在Xamarin.Android工程中添加初始化代码：
+1. 在Xamarin.Android工程中添加初始化代码：
     ```
     using AppVersionPlugin;
     
@@ -114,10 +114,10 @@ Add Packages -> Configure Sources -> Add，定位到.nupkg文件所在的目录�
 ## TODO
 
 * 将NuGet发布到官方源
-* 将NuGet托管到云存储
+* 将NuGet托管到云存储
 * 测试和持续集成
 
 ## 参考
 * [Creating New Platform-Specific Library Projects for NuGet](https://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget-multiplatform-libraries/platform-specific/) - 即本文创建NuGet包所使用的方式
 * [Creating Reusable Plugins for Xamarin and Xamarin.Forms](https://blog.xamarin.com/creating-reusable-plugins-for-xamarin-forms/) - 2014年的文章，当时步骤还比较繁琐
-* [Plugins - Easily add native functionality to Xamarin.Forms apps](https://developer.xamarin.com/guides/xamarin-forms/platform-features/plugins/) - Xamarin.Forms官方文档中对使用和创建插件的介绍
+* [Plugins - Easily add native functionality to Xamarin.Forms apps](https://developer.xamarin.com/guides/xamarin-forms/platform-features/plugins/) - Xamarin.Forms官方文档中对使用和创建插件的介绍
