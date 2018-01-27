@@ -1,5 +1,5 @@
 # Java中队列与线程同步探究
-在一个Android APP项目中，需要向设备发送数据，要求连续两条命令的发送间隔不能低于300ms。一开始的做法是在所有有可能连续发数据的地方手动加`Thread.sleep(300);`令线程阻塞，这样做问题很明显：一是可能会漏掉连续发送的地方；二是不好维护；三是如果在UI线程调用，会令UI卡住。为了解决这些问题，计划采用一个队列保存需要发送的数据，然后通过一个专门的线程从队列里取数据、发送、延时。  
+在一个Android APP项目中，需要向设备发送数据，要求连续两条数据的发送间隔不能低于300ms。一开始的做法是在所有有可能连续发数据的地方手动加`Thread.sleep(300);`令线程阻塞，这样做问题很明显：一是可能会漏掉连续发送的地方；二是不好维护；三是如果在UI线程调用，会令UI卡住。为了解决这些问题，计划采用一个队列保存需要发送的数据，然后通过一个专门的线程从队列里取数据、发送、延时。  
 为了探究线程和队列的具体用法，写了一个测试工程，基本框架是这样的：
 ```
 public class Main {
@@ -32,8 +32,8 @@ public class Main {
     }
 }
 ```
-首先写了一个Sender类继承Thread，并添加了一个append方法，用来向队列中添加数据。Sender是一个抽象类，其子类应当实现append方法，并在运行循环中从队列取数据，并调用class Main的send方法模拟发送数据。send方法将本地调用的时间和上次调用的时间相减并打印出来，用于判断两次调用的间隔有没有短于300ms。  
-在main()函数中实例化Sender（此处不能直接new Sender()，而是应该用Sender的子类），并调用append函数追加待发送的数据，第一次和第二次追加之间间隔800ms，实际运行中，应当第二次发送数据比第一次晚800ms，第三次比第二次晚300ms。  
+首先定义Sender类继承Thread，并添加一个append方法，用来向队列中添加数据。Sender是一个抽象类，其子类应当实现append方法，并在运行时循环从队列取数据，然后调用class Main的send方法模拟发送数据。send方法将本次调用的时间和上次调用的时间相减并打印出来，用于判断间隔有没有大于300ms。  
+在main()函数中实例化Sender（此处不能直接new Sender()，要用Sender的子类），并调用append函数追加待发送的数据，第一次和第二次追加之间间隔800ms，实际运行中，应当第二次发送数据比第一次晚800ms，第三次比第二次晚300ms。  
 先来看Sender最初的实现：
 ```
     public static class SimpleSender extends Sender {
@@ -62,7 +62,7 @@ public class Main {
         }
     }
 ```
-队列（Queue）是先进先出的，此处用链表（LinkedList）实现。在append函数中调用队列的add方法向其末尾添加数据，在循环中使用poll获取队列头部的数据，同时将其移出队列，如果当前队列为空则返回null。在main函数中用SimpleSender实例化Sender：`Sender sender = new SimpleSender();`。实际运行，仅输出了一条数据后就卡住了：
+队列（Queue）是先进先出的，此处用链表（LinkedList）实现。在append函数中调用队列的add方法向其末尾添加数据，在循环中使用poll获取队列头部的数据，同时将其移出队列，如果当前队列为空则返回null。在main函数中用SimpleSender实例化Sender：`Sender sender = new SimpleSender();`。实际运行，发现仅输出了一条数据后就卡住了（在不同环境中运行可能会有差别）：
 ```
 0: 1
 ```
@@ -195,7 +195,7 @@ loop running
     }
 ```
 wait/nofity方法隶属Ojbect类，适用于任何对象，并且必须在synchronized代码块中使用————wait方法在阻塞线程的同时会释放对象的锁，而对象只有在synchronized代码块中才有锁，参考：[java中线程的阻塞、暂停、启用](http://qs0369.blog.163.com/blog/static/43272385201221241034952/)。  
-运行效果一致与使用suspend/resume一致：
+运行效果与使用suspend/resume一致：
 ```
 loop running
 0: 1
@@ -206,7 +206,7 @@ loop running
 2: 301
 loop running
 ```
-其实以上的同步和阻塞我们不需要自己写，可以通过Java内置的[BlockingQueue](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/BlockingQueue.html)来实现。BlockingQueue是Queue接口的子接口，相对于Queue添加了一个[take方法](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/BlockingQueue.html#take)，与poll方法功能一样，但在队列为空时它不返回null，而是会阻塞当前调用，直到队列中有值或被interrupt调用打断，被打断后会抛出一个Interrupted Exception。使用BlockingQueue可以另代码简化：
+其实以上的同步和阻塞我们不需要自己写，可以通过Java内置的[BlockingQueue](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/BlockingQueue.html)来实现。BlockingQueue是Queue接口的子接口，比Queue多了一个[take方法](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/BlockingQueue.html#take)，与poll方法功能一样，但在队列为空时它不返回null，而是会阻塞当前调用，直到队列中有数据或线程被interrupt调用打断（被打断后会抛出一个InterruptedException），并且无需担心加锁问题，BlockingQueue是线程安全的。以下是用BlockingQueue实现的Sender：
 ```
     public static class BlockingSender extends Sender {
 
@@ -251,8 +251,8 @@ loop running
 2: 302
 loop running
 ```
-实际上最后一次循环还没有运行完，收到下一个数据后会继续处理。并且无需担心加锁问题，BlockingQueue是线程安全的。  
-BlockingQueue可以说完美地解决了我们的问题。不过最后还有一个需求，就是在主线程已经确定没有数据需要发送以后停止数据发送线程。如果我们没有加阻塞机制，那么可以通过控制while()语句判断的变量来结束循环，令线程退出；有阻塞的情况下也很简单，只要调用线程的interrupt方法打断阻塞，并在异常处理中结束循环即可：
+实际上最后一次循环还没有运行完，收到下一个数据后会继续处理。  
+BlockingQueue完美地解决了我们的问题。不过最后还有一个需求，就是在连接断开以后停止数据发送线程。如果我们没有加阻塞机制，那么可以通过控制while()语句判断的变量来结束循环，令线程退出；有阻塞的情况下也很简单，只要调用线程的interrupt方法打断阻塞，并在异常处理中结束循环即可：
 ```
     public static class BlockingInterruptSender extends Sender {
 
@@ -291,7 +291,7 @@ BlockingQueue可以说完美地解决了我们的问题。不过最后还有一�
         
         //创建线程和发送数据（略）
         
-        //延时停止线程
+        //延时打断线程
         try {
             Thread.sleep(1000);
         }
@@ -313,3 +313,5 @@ keep going
 Process finished with exit code 0
 ```
 可以看到进程正常退出，而之前的每一次，由于发送线程死循环或阻塞，只能手动中止测试程序。
+
+参考：[代码片段](https://gitee.com/erabbit/codes/lvqz59xf3kpsd2orc40ia53)
