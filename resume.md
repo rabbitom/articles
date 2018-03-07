@@ -27,3 +27,5 @@
 * 2016 年、2017年  Ubuntu Core黑客马拉松比赛 二等奖（传感器数据采集、单片机烧录管理）
 * 2017年AngelHack全球黑客马拉松比赛深圳站 冠军，入选黑客加速计划，11月受邀赴硅谷路演（TeamUp小程序）
 * 2017年DoraHacks深圳秋季黑客马拉松比赛 三等奖（微信打印助手）
+* 2017年微软Xamarin移动跨平台应用开发大赛（CSDN主办） 优秀奖
+* 2017年Qualcomm DragonBoard 410c开发板试用活动 优秀案例 - [获奖新闻](http://geek.csdn.net/news/detail/248543)
