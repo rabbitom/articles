@@ -9,6 +9,6 @@
   "author": "Tom Hao",
   "license": "ISC",
   "dependencies": {
-    "reveal": "0.0.4"
+    "reveal.js": "^3.6.0"
   }
 }
