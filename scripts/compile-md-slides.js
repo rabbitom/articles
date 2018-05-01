@@ -23,24 +23,28 @@ var mdFile = process.argv[3];
 var mdStr = readFileAsString(mdFile);
 
 const sectionSplitter = '\n\n';
-const titleSection = /^##/;
-const imageSection = /^!\[(.*)\]\((.*)\)/;
+const titleSection = /^#/;
+const imageSection = /^!\[(.*)\]\(.*\)$/;
 
 var sections = mdStr.split('\n\n');
 var data = [];
 var currentArray = [];
 for(var i=0, len=sections.length; i<len; ) {
-    var currentLine = sections[i++];
-    if((i == len) || /^#/.test(sections[i])) {
+    var currentSection = sections[i++];
+    if(imageSection.test(currentSection)) {
+        var parts = currentSection.match(imageSection);
+        currentSection = parts[1] + '\n' + parts[0];
+    }
+    if((i == len) || titleSection.test(sections[i])) {
         if(currentArray.length == 0)
-            data.push(currentLine);
+            data.push(currentSection);
         else {
             data.push(currentArray);
             currentArray = [];
         }
     }
     else
-        currentArray.push(currentLine);
+        currentArray.push(currentSection);
 }
 
 var outputStr = ejs.render(templateStr, {'data': data});
