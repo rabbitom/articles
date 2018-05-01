@@ -39,6 +39,7 @@ for(var i=0, len=sections.length; i<len; ) {
         if(currentArray.length == 0)
             data.push(currentSection);
         else {
+            currentArray.push(currentSection);
             data.push(currentArray);
             currentArray = [];
         }
