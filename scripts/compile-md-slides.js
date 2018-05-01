@@ -27,8 +27,23 @@ const titleSection = /^##/;
 const imageSection = /^!\[(.*)\]\((.*)\)/;
 
 var sections = mdStr.split('\n\n');
+var data = [];
+var currentArray = [];
+for(var i=0, len=sections.length; i<len; ) {
+    var currentLine = sections[i++];
+    if((i == len) || /^#/.test(sections[i])) {
+        if(currentArray.length == 0)
+            data.push(currentLine);
+        else {
+            data.push(currentArray);
+            currentArray = [];
+        }
+    }
+    else
+        currentArray.push(currentLine);
+}
 
-var outputStr = ejs.render(templateStr, {'sections': sections});
+var outputStr = ejs.render(templateStr, {'data': data});
 var outputDir = path.dirname(mdFile);
 var outputFilename = path.basename(mdFile, 'md');
 var outputPath = path.format({
