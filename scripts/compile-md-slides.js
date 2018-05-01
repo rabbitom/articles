@@ -14,13 +14,13 @@ function exit(code, msg) {
     process.exit(code);
 }
 
-if(process.argv.length < 4)
-    exit(`Usage: ${process.argv[1]} <template-file> <md-file>`);
+if(process.argv.length < 3)
+    exit(`Usage: ${process.argv[1]} <md-file> [template-file]`);
 
-var templateFile = process.argv[2];
-var templateStr = readFileAsString(templateFile);
-var mdFile = process.argv[3];
+var mdFile = process.argv[2];
 var mdStr = readFileAsString(mdFile);
+var templateFile = (process.argv.length >= 4) ? process.argv[3] : mdFile.replace(/\.md$/, '.ejs');
+var templateStr = readFileAsString(templateFile);
 
 const sectionSplitter = '\n\n';
 const titleSection = /^#/;
