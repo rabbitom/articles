@@ -14,7 +14,7 @@
                             <% item.forEach(function(subitem) { %>
                     <section data-markdown data-background-image="images/angelhack-light-logo.png" data-background-size="auto" data-background-position="bottom left">
                         <textarea data-template>
-                                <%= subitem %>
+                                <%_ %><%= subitem %>
                         </textarea>
                     </section>
                             <% }) %>
@@ -22,7 +22,7 @@
                         <% } else { %>
                 <section data-markdown data-background-image="images/angelhack-light-logo.png" data-background-size="auto" data-background-position="bottom left">
                     <textarea data-template>
-                            <%= item %>
+                            <%_ %><%= item %>
                     </textarea>
                 </section>
                 <% }})} %>
