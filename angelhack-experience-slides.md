@@ -38,3 +38,18 @@
 
 ## Silicon Valley
 ![](images/201711_GoldenGateBridge.jpg)
+
+![Liping helped us a lot](images/201711_likai_liping.jpg)
+
+Silicon Valley Week Schedule
+* Mon. ~ Wed. pitch training at a co-working space
+* Thu. Global Demo Day and after party at Wilsey Center for Opera
+* Sat. picnic at Dolores Park and saying goodbye
+
+![Wilsey Center for Opera](images/201711_SF_Opera_House.jpg)
+
+![The Champion team of Global Demo Day](images/201711_AngelHack_GDD_Champion.jpg)
+
+![At Googleplex](images/201711_likai_google.jpg)
+
+![With Kyler at Global Demo Day](images/201711_GDD_Kyler.jpg)
