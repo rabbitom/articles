@@ -12,7 +12,7 @@
 
 ![Dec. 2016, Ubuntu Hackathon](images/201612_Ubuntu.jpg)
 
-## What does hackathon mean to me
+### What does hackathon mean to me
 * To work on ideas I came up with but had no time to do in daily work
 * Get feedbacks from experts and fellow coders
 
@@ -33,7 +33,7 @@
   * Minimum Viable Product
   * Feedback loop and data
 
-  ## Gauntlet Call - Silicon Valley or Not
+  ### Gauntlet Call - Silicon Valley or Not
   ![](images/201709_AgnelHack_GauntletCall.jpg)
 
 ## Silicon Valley
@@ -41,7 +41,7 @@
 
 ![Liping helped us a lot](images/201711_likai_liping.jpg)
 
-  ## Silicon Valley Week Schedule
+  ### Silicon Valley Week Schedule
   * Mon. ~ Wed. pitch training at a co-working space
   * Thu. Global Demo Day and after party at Wilsey Center for Opera
   * Sat. picnic at Dolores Park and saying goodbye
