@@ -24,7 +24,7 @@ var templateStr = readFileAsString(templateFile);
 
 const sectionSplitter = '\n\n';
 const titleSection = /^#/;
-const imageSection = /^!\[(.*)\]\(.*\)$/;
+const imageSection = /^!\[(.*)\]\((.*)\)$/;
 
 var sections = mdStr.split('\n\n');
 var data = [];
@@ -33,7 +33,13 @@ for(var i=0, len=sections.length; i<len; ) {
     var currentSection = sections[i++];
     if(imageSection.test(currentSection)) {
         var parts = currentSection.match(imageSection);
-        currentSection = parts[1] + '\n' + parts[0];
+        var imageTitle = parts[1];
+        if(imageTitle == '')
+            currentSection = {
+                background: parts[2]
+            }
+        else
+            currentSection = parts[1] + '\n' + parts[0];
     }
     if((i == len) || titleSection.test(sections[i])) {
         if(currentArray.length == 0)

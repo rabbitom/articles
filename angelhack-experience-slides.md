@@ -20,7 +20,7 @@
 
 ![The team matching process of hackathon](images/201707_AngelHack_Whiteboard.jpg)
 
-![The TeamUp prototype devloped at hackathon](images/201707_TeamUp_Prototype1.jpg)
+![](images/201707_TeamUp_Prototype1.jpg)
 
 ![My fellow teams at hackathon](images/201707_AngelHack_Teams.jpg)
 
@@ -29,22 +29,22 @@
 * Deliverables
 * Check-in calls with mentor
 
-## What I learned
-* Minimum Viable Product
-* Feedback loop and data
+  ## What I learned
+  * Minimum Viable Product
+  * Feedback loop and data
 
-## Gauntlet Call - Silicon Valley or Not
-![](images/201709_AgnelHack_GauntletCall.jpg)
+  ## Gauntlet Call - Silicon Valley or Not
+  ![](images/201709_AgnelHack_GauntletCall.jpg)
 
 ## Silicon Valley
 ![](images/201711_GoldenGateBridge.jpg)
 
 ![Liping helped us a lot](images/201711_likai_liping.jpg)
 
-Silicon Valley Week Schedule
-* Mon. ~ Wed. pitch training at a co-working space
-* Thu. Global Demo Day and after party at Wilsey Center for Opera
-* Sat. picnic at Dolores Park and saying goodbye
+  ## Silicon Valley Week Schedule
+  * Mon. ~ Wed. pitch training at a co-working space
+  * Thu. Global Demo Day and after party at Wilsey Center for Opera
+  * Sat. picnic at Dolores Park and saying goodbye
 
 ![Wilsey Center for Opera](images/201711_SF_Opera_House.jpg)
 
