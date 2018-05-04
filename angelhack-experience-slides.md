@@ -52,4 +52,11 @@
 
 ![At Googleplex](images/201711_likai_google.jpg)
 
+  ## Some thoughts
+  * people in Silicon Valley: hard working, serious, same work years as in China
+  * a chance to know people all over the world, their thoughs, their way of work
+  * 14-year-old boy, entrepreneurship at so young age
+
+![The AngelHack Team](images/201711_GDD_AngelHack_Team.jpg)
+
 ![With Kyler at Global Demo Day](images/201711_GDD_Kyler.jpg)
