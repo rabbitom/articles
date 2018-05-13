@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.5.9",
+    "gulp": "^3.9.1",
     "reveal.js": "^3.6.0"
   }
 }
