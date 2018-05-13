@@ -19,7 +19,14 @@ if(process.argv.length < 3)
 
 var mdFile = process.argv[2];
 var mdStr = readFileAsString(mdFile);
-var templateFile = (process.argv.length >= 4) ? process.argv[3] : mdFile.replace(/\.md$/, '.ejs');
+var templateFile;
+if (process.argv.length >= 4)
+    templateFile = process.argv[3];
+else {
+    templateFile = mdFile.replace(/\.md$/, '.ejs');
+    if(!fs.existsSync(templateFile))
+        templateFile = 'slides.ejs';
+}
 var templateStr = readFileAsString(templateFile);
 
 const sectionSplitter = '\n\n';
