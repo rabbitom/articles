@@ -16,7 +16,7 @@ I'm Tom, currently working in Shenzhen as a self-employed engineer, doing mobile
 2005 to 2009: Beijing University of Posts and Telecommunications, major in Information Engineering, graduated with a Bachelor degree
 
 ## Technicial Skills
-* familiar with C, C++, Java, JavaScript and C# programming languages
+* familiar with C, JavaScript and C# programming languages, understand the basics of C++ and Java
 * familiar with Linux, especially Ubuntu
 * familiar with cloud computing platforms, including AWS and Azure
 * experienced in Bluetooth LE and Wi-Fi communication, TCP/IP, HTTP and MQTT protocols
