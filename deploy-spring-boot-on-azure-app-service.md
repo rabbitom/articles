@@ -26,7 +26,7 @@ Azure是微软的公有云服务，在Azure上部署Web应用主要有以下几�
 [Deploy a Spring Boot app to the cloud with Maven and Azure | Microsoft Docs](https://docs.microsoft.com/en-us/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?view=azure-java-stable)
 ## 4. 使用同样的maven插件，但以docker形式打包和发布
 详见：[How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app in Azure Container Registry to Azure App Service | Microsoft Docs](https://docs.microsoft.com/en-us/java/azure/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin?view=azure-java-stable#deploy-your-spring-boot-web-app-to-azure)  
-这种方法与上一种的不同之处首先在于，本地编译出来的不再是war包，也不是jar包，而是docker镜像。上一种使用的示例工程是，这一种是。  
+这种方法与上一种的不同之处首先在于，本地编译出来的不再是war包，也不是jar包，而是docker镜像。上一种使用的示例工程是[spring-guides/gs-spring-boot](https://github.com/spring-guides/gs-spring-boot)，这一种是[spring-guides/gs-spring-boot-docker](https://github.com/spring-guides/gs-spring-boot-docker)。  
 并且接下来先将镜像发布到Azure Container Registry，然后再部署到App Service中，对应的pom.xml文件中，在maven插件的配置中少了`<deploymentType>`，多了`<containerSettings>`，对比如下：
 * war包形式：
     ```
