@@ -87,6 +87,7 @@ Azure是微软的公有云服务，在Azure上部署Web应用主要有以下几�
 * [Azure MySQL数据库_数据库托管服务 - Azure云计算](https://www.azure.cn/zh-cn/home/features/mysql/)
 * [MySQL Database on Azure快速入门指南 | Azure Docs](https://docs.azure.cn/zh-cn/mysql/mysql-database-get-started#step1)
 * [Announcing MySQL in-app for Web Apps (Windows) | Azure App Service Team Blog](https://blogs.msdn.microsoft.com/appserviceteam/2016/08/18/announcing-mysql-in-app-preview-for-web-apps/)
+* [Build a Java and MySQL web app in Azure | Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-java-mysql)
 ## API应用
 * [应用程序网关 - Azure云计算](https://www.azure.cn/zh-cn/home/features/application-gateway/)
 * [Azure API 管理 - Azure云计算](https://www.azure.cn/zh-cn/home/features/api-management/)
