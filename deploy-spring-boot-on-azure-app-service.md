@@ -79,15 +79,11 @@ Azure是微软的公有云服务，在Azure上部署Web应用主要有以下几�
 * [Azure 应用服务、虚拟机、Service Fabric 和云服务的比较 | Azure Docs](https://docs.azure.cn/zh-cn/app-service/choose-web-site-cloud-service-vm)
 * [Deploying Spring Boot Applications](https://spring.io/blog/2014/03/07/deploying-spring-boot-applications)
 * [Visual Studio Code and Azure App Service - a perfect fit | 博客 | Microsoft Azure](https://azure.microsoft.com/zh-cn/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)
+* [Build Spring Boot 2.0 apps with Azure Starters and new VSCode extensions | Blog | Microsoft Azure](https://azure.microsoft.com/en-us/blog/build-spring-boot-2-0-apps-with-azure-starters-and-new-vscode-extensions/)
 ## 持续集成
 * [Build and deploy Java projects with VSTS | Microsoft Docs](https://docs.microsoft.com/en-us/vsts/java/?view=vsts)
 * [Use Jenkins to deploy your web apps to Azure | Microsoft Docs](https://docs.microsoft.com/en-us/azure/jenkins/java-deploy-webapp-tutorial)
 * [Create a CI/CD pipeline for Java with the Azure DevOps Project | Microsoft Docs](https://docs.microsoft.com/en-us/azure/devops-project/azure-devops-project-java)
-## MySQL数据库
-* [Azure MySQL数据库_数据库托管服务 - Azure云计算](https://www.azure.cn/zh-cn/home/features/mysql/)
-* [MySQL Database on Azure快速入门指南 | Azure Docs](https://docs.azure.cn/zh-cn/mysql/mysql-database-get-started#step1)
-* [Announcing MySQL in-app for Web Apps (Windows) | Azure App Service Team Blog](https://blogs.msdn.microsoft.com/appserviceteam/2016/08/18/announcing-mysql-in-app-preview-for-web-apps/)
-* [Build a Java and MySQL web app in Azure | Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-java-mysql)
 ## API应用
 * [应用程序网关 - Azure云计算](https://www.azure.cn/zh-cn/home/features/application-gateway/)
 * [Azure API 管理 - Azure云计算](https://www.azure.cn/zh-cn/home/features/api-management/)
