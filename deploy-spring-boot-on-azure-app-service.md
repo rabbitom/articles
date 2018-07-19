@@ -82,6 +82,7 @@ Azure是微软的公有云服务，在Azure上部署Web应用主要有以下几�
 * [Build Spring Boot 2.0 apps with Azure Starters and new VSCode extensions | Blog | Microsoft Azure](https://azure.microsoft.com/en-us/blog/build-spring-boot-2-0-apps-with-azure-starters-and-new-vscode-extensions/)
 ## 持续集成
 * [Build and deploy Java projects with VSTS | Microsoft Docs](https://docs.microsoft.com/en-us/vsts/java/?view=vsts)
+* [中国区的Azure添加到 VSTS 的 Service Endpoint - 任跃兵 - 博客园](http://www.cnblogs.com/cnryb/p/7867275.html)
 * [Use Jenkins to deploy your web apps to Azure | Microsoft Docs](https://docs.microsoft.com/en-us/azure/jenkins/java-deploy-webapp-tutorial)
 * [Create a CI/CD pipeline for Java with the Azure DevOps Project | Microsoft Docs](https://docs.microsoft.com/en-us/azure/devops-project/azure-devops-project-java)
 ## API应用
