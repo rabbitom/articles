@@ -69,6 +69,22 @@ Oct 21st, 2018
 * [SensorTag(CC2650STK)](http://www.ti.com/ww/en/wireless_connectivity/sensortag/index.html), [buy on taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.29.bb7251bckEWVMj&id=577128439180&ns=1&abbucket=19#detail)
 * [micro:bit](https://www.microbit.org/) - [buy on taobao](https://detail.tmall.com/item.htm?spm=a230r.1.14.20.1f6e116eZtqpcM&id=555005031923&ns=1&abbucket=19)
 
+## Hack SensorTag
+* [CC2650 SensorTag User's Guide - Texas Instruments Wiki](http://processors.wiki.ti.com/index.php/CC2650_SensorTag_User's_Guide)
+* in Chinese: [rabbitom/ble-sensors - GitHub](https://github.com/rabbitom/ble-sensors/blob/master/doc/TISensorTag-zh.md)
+
+## Hack Micro:bit
+* Animation Service  
+  UUID: E95D7170-251D-470A-A062-FA1922DFA9A8
+* Animation Type Charactersitic  
+  UUID: E95DC306-251D-470A-A062-FA1922DFA9A8  
+  Operations: Read, Write  
+  Data: 1 = blink, 2 = wave, 3 = helical  
+* Animation Status Control Charactersitic  
+  UUID: E95DB84C-251D-470A-A062-FA1922DFA9A8  
+  Operations: Write  
+  Data: 1 = Start, 2 = Stop, 3 = Faster, 4 = Slower
+
 ## Contact
 * Tom Hao
 * GitHub: [rabbitom](http://github.com/rabbitom)
