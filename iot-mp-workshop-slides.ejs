@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+                <meta charset="utf-8" />
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/theme/blood.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <% if(data.length) {
+                    data.forEach(function(item) {
+                        if(item instanceof Array) { %>
+                <section>
+                            <% item.forEach(function(subitem) {
+                                if(subitem.background) { %>
+                        <section data-markdown data-background-image="<%= subitem.background %>" data-background-size="contain">
+                        </section>
+                                <% } else { %>
+                    <section data-markdown data-background-image="images/Lewagon.png" data-background-size="200px 100px" data-background-position="bottom left">
+                        <textarea data-template>
+                                <%_ %><%= subitem %>
+                        </textarea>
+                    </section>
+                            <% }}) %>
+                </section>
+                        <% } else { %>
+                <section data-markdown data-background-image="images/Lewagon.svg" data-background-size="200px 100px" data-background-position="bottom left">
+                    <textarea data-template>
+                            <%_ %><%= item %>
+                    </textarea>
+                </section>
+                <% }})} %>
+			</div>
+		</div>
+        <script src="node_modules/reveal.js/js/reveal.js"></script>
+        <script src="node_modules/reveal.js/plugin/markdown/marked.js"></script>
+        <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+		<script>
+			Reveal.initialize();
+		</script>
+	</body>
+</html>
